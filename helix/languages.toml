@@ -1,0 +1,7 @@
+[language-server.clangd]
+command = "clangd-18"
+
+[[language]]
+name = "c"
+auto-format = true
+formatter = {command = "clang-format-18"}
