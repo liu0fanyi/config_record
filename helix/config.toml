@@ -2,6 +2,7 @@ theme = "onedark"
 
 [editor]
 line-number = "relative"
+idle-timeout = 800
 mouse = false
 auto-completion=true
 auto-save=true
@@ -39,7 +40,8 @@ skip-levels = 1
 # C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 # "C-*" = "maw*/" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 "C-S-esc" = "extend_line" # Maps Ctrl-Shift-Escape to extend_line
-g = { a = "code_action" } # Maps `ga` to show possible code actions
+# g = { a = "code_action",   d = ["hsplit", "jump_view_up", "goto_definition"] } # Maps `ga` to show possible code actions
+g = { a = "code_action"} # Maps `ga` to show possible code actions
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
@@ -64,8 +66,11 @@ a = ["append_mode", "collapse_selection"]
 
 D = "kill_to_line_end"
 
-[keys.insert]
-"A-x" = "normal_mode"     # Maps Alt-X to enter normal mode
+X = ["extend_line_up", "extend_to_line_bounds"]
+A-x = "extend_to_line_bounds"
+
+# [keys.insert]
+# "A-x" = "normal_mode"     # Maps Alt-X to enter normal mode
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
 
 
@@ -78,3 +83,5 @@ G = "goto_file_end"
 # Search for word under cursor
 "*" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
 "#" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_prev"]
+X = ["extend_line_up", "extend_to_line_bounds"]
+A-x = "extend_to_line_bounds"
