@@ -16,4 +16,8 @@ plugins.pyls_mypy.live_mode = true
 
 [[language]]
 name = "bash"
-file-types = [{glob = "config"}]
+file-types = [{glob = "config"}, "sh"]
+
+# # for armv7-unknown-linux-gnueabihf, need to disable in other
+# [language-server.rust-analyzer.config.cargo]
+# target = "armv7-unknown-linux-gnueabihf"
