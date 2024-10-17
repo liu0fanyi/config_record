@@ -21,3 +21,86 @@ file-types = [{glob = "config"}, "sh"]
 # # for armv7-unknown-linux-gnueabihf, need to disable in other
 # [language-server.rust-analyzer.config.cargo]
 # target = "armv7-unknown-linux-gnueabihf"
+
+
+# TypeScript language configuration
+[[language]]
+name = "typescript"
+auto-format = true
+language-servers = ["typescript-language-server", { name = "tailwindcss-ls", except-features = ["hover"] }, "emmet-ls", "eslint-ls"]
+formatter = { command = "prettier" }
+
+# JavaScript language configuration
+[[language]]
+name = "javascript"
+auto-format = true
+language-servers = ["typescript-language-server", { name = "tailwindcss-ls", except-features = ["hover"] }, "emmet-ls", "eslint-ls"]
+formatter = { command = "prettier" }
+
+# HTML language configuration
+[[language]]
+name = "html"
+auto-format = true
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "emmet-ls", "eslint-ls"]
+formatter = { command = "prettier", args = ["--parser", "html", "--stdin"] }
+
+# CSS language configuration
+[[language]]
+name = "css"
+auto-format = true
+language-servers = ["vscode-css-language-server", { name = "tailwindcss-ls", except-features = ["hover"] }, "emmet-ls", "eslint-ls"]
+formatter = { command = "prettier" }
+
+
+# TailwindCSS Language Server configuration
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+config = { userLanguages = { svelte = "html", "*.svelte" = "html", rust = "html", "*.rs" = "html" } }
+
+# Emmet Language Server configuration
+[language-server.emmet-ls]
+command = "emmet-language-server"
+args = ["--stdio"]
+
+# ESLint Language Server configuration
+[language-server.eslint-ls]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint-ls.config]
+validate = "on"
+experimental = { useFlatConfig = false }
+rulesCustomizations = []
+run = "onType"
+problems = { shortenToSingleLine = false }
+nodePath = ""
+
+[language-server.eslint-ls.config.codeAction.disableRuleComment]
+enable = true
+location = "separateLine"
+
+[language-server.eslint-ls.config.codeAction.showDocumentation]
+enable = true
+
+[language-server.eslint-ls.config.codeActionOnSave]
+enable = true
+mode = "fixAll"
+
+[language-server.eslint-ls.config.workingDirectory]
+mode = "location"
+
+# Svelte language configuration
+[[language]]
+name = "svelte"
+auto-format = true
+language-servers = [ "svelteserver", "tailwindcss-ls" ]
+
+[language-server.svelte-ls]
+command = "svelteserver"
+args = ["--stdio"]
+
+[language-server.svelte-ls.config]
+validate = true
+useWorkspaceDependencies = true
+hover = true
